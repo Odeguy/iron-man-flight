@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsy0d6j3nixd1"]
+
+[ext_resource type="Script" uid="uid://gwpxggrve3yr" path="res://suit_script.gd" id="1_t6bb0"]
+
+[node name="Suit" type="Node2D"]
+script = ExtResource("1_t6bb0")

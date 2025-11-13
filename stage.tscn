@@ -1,0 +1,119 @@
+[gd_scene load_steps=14 format=3 uid="uid://0hmee0tjf2n"]
+
+[ext_resource type="Script" uid="uid://cps2st62cpt15" path="res://stage_script.gd" id="1_6eo5e"]
+[ext_resource type="Texture2D" uid="uid://dj4p7rsomu8ap" path="res://particles/flame_04.png" id="2_aees8"]
+[ext_resource type="Texture2D" uid="uid://dvcmotsil37oc" path="res://particles/star_07.png" id="3_rnkuw"]
+
+[sub_resource type="Gradient" id="Gradient_gr5xt"]
+colors = PackedColorArray(0.841848, 0.818603, 0.815921, 1, 0.381741, 0.770674, 0.959208, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dptxg"]
+gradient = SubResource("Gradient_gr5xt")
+fill_from = Vector2(0.250923, 0.0645756)
+fill_to = Vector2(0.704797, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rnkuw"]
+blend_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gx6sy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+angle_min = -720.0
+angle_max = 633.3
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 657.41
+initial_velocity_max = 657.41
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.4
+
+[sub_resource type="Gradient" id="Gradient_gx6sy"]
+colors = PackedColorArray(0, 0, 0, 1, 0.144785, 0.144785, 0.144785, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_16g40"]
+gradient = SubResource("Gradient_gx6sy")
+fill_from = Vector2(0.505535, 0.437269)
+fill_to = Vector2(0.465035, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rnkuw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+angle_min = -720.0
+angle_max = 633.3
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 657.41
+initial_velocity_max = 657.41
+angular_velocity_min = -80.0
+angular_velocity_max = 80.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.4
+
+[sub_resource type="Gradient" id="Gradient_py8sg"]
+offsets = PackedFloat32Array(0, 0.984293)
+colors = PackedColorArray(0.0862745, 0.266667, 0.219608, 1, 0.0851458, 0.267813, 0.220048, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4krsh"]
+gradient = SubResource("Gradient_py8sg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeklh"]
+size = Vector2(34368, 403)
+
+[node name="Stage" type="Node2D"]
+script = ExtResource("1_6eo5e")
+
+[node name="Background1" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 650.0
+texture = SubResource("GradientTexture2D_dptxg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Background1"]
+material = SubResource("CanvasItemMaterial_rnkuw")
+position = Vector2(576, -448)
+amount = 4
+texture = ExtResource("2_aees8")
+lifetime = 2.45
+process_material = SubResource("ParticleProcessMaterial_gx6sy")
+
+[node name="Background2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1154.0
+offset_bottom = 650.0
+texture = SubResource("GradientTexture2D_16g40")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Background2"]
+material = SubResource("CanvasItemMaterial_rnkuw")
+position = Vector2(576, -448)
+amount = 4
+texture = ExtResource("3_rnkuw")
+lifetime = 2.45
+process_material = SubResource("ParticleProcessMaterial_rnkuw")
+
+[node name="Ground" type="RigidBody2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Ground"]
+z_index = 100
+offset_left = -13481.0
+offset_top = 583.0
+offset_right = 20979.0
+offset_bottom = 713.0
+texture = SubResource("GradientTexture2D_4krsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(3750, 783)
+shape = SubResource("RectangleShape2D_xeklh")
+
+[node name="Button" type="Button" parent="."]
+z_index = 4096
+offset_left = 880.0
+offset_top = 216.0
+offset_right = 1072.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 50
+text = "LAUNCH"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

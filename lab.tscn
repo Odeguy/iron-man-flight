@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1skd5rtvs8u2"]
+
+[ext_resource type="Script" uid="uid://8epxl686yds0" path="res://lab_script.gd" id="1_3e1xo"]
+[ext_resource type="Texture2D" uid="uid://jfg336eqti4r" path="res://images/f6db709b2522a6da3ded0ce276d87cb5_jpg.png" id="2_6kv01"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw7jv"]
+
+[node name="Lab" type="Node2D"]
+script = ExtResource("1_3e1xo")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 1155.0
+offset_bottom = 650.0
+texture = ExtResource("2_6kv01")
+
+[node name="HelmetSpot" type="Marker2D" parent="."]
+position = Vector2(576, 128)
+
+[node name="Area2D" type="Area2D" parent="HelmetSpot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HelmetSpot/Area2D"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="ArmsSpot" type="Marker2D" parent="."]
+position = Vector2(408, 296)
+
+[node name="Area2D" type="Area2D" parent="ArmsSpot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmsSpot/Area2D"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="Area2D2" type="Area2D" parent="ArmsSpot"]
+position = Vector2(336, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmsSpot/Area2D2"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="LegsSpot" type="Marker2D" parent="."]
+position = Vector2(408, 488)
+
+[node name="Area2D" type="Area2D" parent="LegsSpot"]
+position = Vector2(80, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegsSpot/Area2D"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="Area2D2" type="Area2D" parent="LegsSpot"]
+position = Vector2(256, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LegsSpot/Area2D2"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="TorsoSpot" type="Marker2D" parent="."]
+position = Vector2(576, 296)
+
+[node name="Area2D" type="Area2D" parent="TorsoSpot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TorsoSpot/Area2D"]
+scale = Vector2(7.40491, 7.40491)
+shape = SubResource("CircleShape2D_uw7jv")
