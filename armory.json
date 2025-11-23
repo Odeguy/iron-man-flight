@@ -1,14 +1,9 @@
+
 {
-	"arms": {
-		"name": "path"
-	},
-	"legs": {
-		"name": "path"
-	},
-	"helmets": {
-		"name": "path"
-	},
-	"torsos": {
-		"name": "path"
+	"Mark 1.2": {
+		"res://suits/mark1/mark1_helmet.tscn": "",
+		"res://suits/mark1/mark1_torso.tscn": "",
+		"res://suits/mark1/mark1_arm.tscn": "",
+		"res://suits/mark1/mark1_leg.tscn": ""
 	}
 }

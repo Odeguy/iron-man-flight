@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://w3878dk68kvp"]
+[gd_scene load_steps=3 format=3 uid="uid://w3878dk68kvp"]
 
 [ext_resource type="Script" uid="uid://dhpih3f23oyox" path="res://start_menu._script.gd" id="1_jwbto"]
+[ext_resource type="PackedScene" uid="uid://b1skd5rtvs8u2" path="res://lab.tscn" id="2_ia0g5"]
 
 [node name="StartMenu" type="Node2D"]
 script = ExtResource("1_jwbto")
+lab_scene = ExtResource("2_ia0g5")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 456.0

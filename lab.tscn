@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1skd5rtvs8u2"]
+[gd_scene load_steps=7 format=3 uid="uid://b1skd5rtvs8u2"]
 
 [ext_resource type="Script" uid="uid://8epxl686yds0" path="res://lab_script.gd" id="1_3e1xo"]
 [ext_resource type="Texture2D" uid="uid://jfg336eqti4r" path="res://images/f6db709b2522a6da3ded0ce276d87cb5_jpg.png" id="2_6kv01"]
+[ext_resource type="PackedScene" uid="uid://bsy0d6j3nixd1" path="res://suit.tscn" id="2_uw7jv"]
+[ext_resource type="PackedScene" uid="uid://0hmee0tjf2n" path="res://stage.tscn" id="3_e2xd3"]
+[ext_resource type="Texture2D" uid="uid://cwb3nl1ks8ufc" path="res://images/mark1/torso.png" id="5_dtsd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw7jv"]
 
 [node name="Lab" type="Node2D"]
 script = ExtResource("1_3e1xo")
+suit_scene = ExtResource("2_uw7jv")
+stage_scene = ExtResource("3_e2xd3")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -1
@@ -15,7 +20,7 @@ offset_bottom = 650.0
 texture = ExtResource("2_6kv01")
 
 [node name="HelmetSpot" type="Marker2D" parent="."]
-position = Vector2(576, 128)
+position = Vector2(274, 138)
 
 [node name="Area2D" type="Area2D" parent="HelmetSpot"]
 
@@ -23,14 +28,62 @@ position = Vector2(576, 128)
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
 
+[node name="Label" type="Label" parent="HelmetSpot/Area2D"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Helmet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HelmetSpot/Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
 [node name="ArmsSpot" type="Marker2D" parent="."]
-position = Vector2(408, 296)
+position = Vector2(106, 306)
 
 [node name="Area2D" type="Area2D" parent="ArmsSpot"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmsSpot/Area2D"]
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="Label" type="Label" parent="ArmsSpot/Area2D"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Arm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ArmsSpot/Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
 
 [node name="Area2D2" type="Area2D" parent="ArmsSpot"]
 position = Vector2(336, 0)
@@ -39,8 +92,33 @@ position = Vector2(336, 0)
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
 
+[node name="Label" type="Label" parent="ArmsSpot/Area2D2"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Arm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ArmsSpot/Area2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+flip_h = true
+
 [node name="LegsSpot" type="Marker2D" parent="."]
-position = Vector2(408, 488)
+position = Vector2(106, 498)
 
 [node name="Area2D" type="Area2D" parent="LegsSpot"]
 position = Vector2(80, 0)
@@ -49,6 +127,30 @@ position = Vector2(80, 0)
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
 
+[node name="Label" type="Label" parent="LegsSpot/Area2D"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Leg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LegsSpot/Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
 [node name="Area2D2" type="Area2D" parent="LegsSpot"]
 position = Vector2(256, 0)
 
@@ -56,11 +158,116 @@ position = Vector2(256, 0)
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
 
+[node name="Label" type="Label" parent="LegsSpot/Area2D2"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Leg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LegsSpot/Area2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+flip_h = true
+
 [node name="TorsoSpot" type="Marker2D" parent="."]
-position = Vector2(576, 296)
+position = Vector2(274, 306)
 
 [node name="Area2D" type="Area2D" parent="TorsoSpot"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TorsoSpot/Area2D"]
 scale = Vector2(7.40491, 7.40491)
 shape = SubResource("CircleShape2D_uw7jv")
+
+[node name="Label" type="Label" parent="TorsoSpot/Area2D"]
+offset_left = -26.0
+offset_top = -10.0
+offset_right = 31.0
+offset_bottom = 13.0
+text = "Torso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TorsoSpot/Area2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 46.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 576.0
+offset_right = 1152.0
+offset_bottom = 648.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mark 0"
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("5_dtsd6")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Mark ♾️"
+
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 208.0
+offset_top = 592.0
+offset_right = 341.0
+offset_bottom = 623.0
+text = "Ready for Liftoff"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

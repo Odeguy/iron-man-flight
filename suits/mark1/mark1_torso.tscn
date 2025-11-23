@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://um10xgm4nchv"]
+
+[ext_resource type="PackedScene" uid="uid://2jhmygtrh7sn" path="res://component.tscn" id="1_h15i8"]
+[ext_resource type="Texture2D" uid="uid://cwb3nl1ks8ufc" path="res://images/mark1/torso.png" id="2_4d4ir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d4ir"]
+
+[node name="Component" instance=ExtResource("1_h15i8")]
+type = "torso"
+thrust = 500.0
+inertia = 5.0
+
+[node name="CollisionShape2D" parent="RigidBody2D" index="0"]
+scale = Vector2(3.25618, 3.4023)
+shape = SubResource("CircleShape2D_4d4ir")
+
+[node name="TextureRect" parent="RigidBody2D" index="1"]
+offset_left = -46.0
+offset_top = -44.0
+offset_right = 47.0
+offset_bottom = 49.0
+texture = ExtResource("2_4d4ir")
+expand_mode = 2
+stretch_mode = 4

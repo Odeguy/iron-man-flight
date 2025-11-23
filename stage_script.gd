@@ -8,12 +8,23 @@ class_name Stage
 @onready var crossed_threshold := 0 #times threshold has been crossed
 @onready var background := $Background1
 @onready var not_background := $Background2
+var screen_size = get_viewport_rect().size
 var iron_man: Suit
+var lab: Lab
+
+func _ready() -> void:
+	add_child(iron_man)
+	screen_size = get_viewport_rect().size
+	iron_man.position = screen_size / 2
 
 func _physics_process(delta: float) -> void:
 	count += 1
-	$Background1.position = iron_man.position
-	$Background2.position = iron_man.position
+	var pos = iron_man.torso.get_body().position.y
+	$Background1.position.y = pos
+	$Background2.position.y = pos
+	$Background1/Label.text = "Fuel: " + str(int(iron_man.fuel))
+	$Background2/Label.text = "Fuel: " + str(int(iron_man.fuel))
+	$Camera2D.position.y = pos + screen_size.y / 2
 	
 	if iron_man.position.y >= threshold && crossed_threshold == 0:
 		switch_background()
@@ -34,5 +45,6 @@ func switch_background() -> void:
 	not_background = temp
 
 func _on_button_pressed() -> void:
-	iron_man.toggle_thrust()
+	iron_man.toggle_thrust.emit()
 	$Button.mouse_filter = 2
+	$Button.hide()
