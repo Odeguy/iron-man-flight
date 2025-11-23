@@ -14,3 +14,8 @@ config/name="Iron Man Flight"
 run/main_scene="uid://d1a3bynsqv3uf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/always_on_top=true
+window/stretch/mode="canvas_items"
