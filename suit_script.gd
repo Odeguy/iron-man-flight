@@ -13,10 +13,10 @@ var fuel: float
 signal toggle_thrust
 	
 func _physics_process(delta: float) -> void:
-	if fuel <= 0:
+	if fuel <= 5 && fuel != 0:
 		fuel =  0
 		toggle_thrust.emit()
-	if torso.thrust_enabled: fuel -= 0.5
+	if torso.thrust_enabled: fuel -= 0.2
 		
 func build(f: int) -> void:
 	fuel = f
@@ -25,7 +25,7 @@ func build(f: int) -> void:
 	arm2.position = $ArmMarkerR.position
 	arm2.flip()
 	leg1.position = $LegMarkerL.position
-	leg2.position = $ArmMarkerR.position
+	leg2.position = $LegMarkerR.position
 	leg2.flip()
 	torso.position = $TorsoMarker.position
 	helmet.position = $HelmetMarker.position

@@ -7,8 +7,8 @@
 
 [node name="Component" instance=ExtResource("1_i1eal")]
 type = "helmet"
-thrust = 5.0
-inertia = 5.0
+thrust = 50.0
+inertia = 15.0
 
 [node name="CollisionShape2D" parent="RigidBody2D" index="0"]
 scale = Vector2(-3.42106, 4.26667)

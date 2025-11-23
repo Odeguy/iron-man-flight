@@ -61,7 +61,7 @@ colors = PackedColorArray(0.0862745, 0.266667, 0.219608, 1, 0.0851458, 0.267813,
 gradient = SubResource("Gradient_py8sg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xeklh"]
-size = Vector2(34368, 403)
+size = Vector2(34368, 1258.5)
 
 [node name="Stage" type="Node2D"]
 script = ExtResource("1_6eo5e")
@@ -83,9 +83,10 @@ z_index = 5
 material = SubResource("CanvasItemMaterial_rnkuw")
 position = Vector2(576, -448)
 scale = Vector2(0.798039, 1)
-amount = 4
+amount = 40
 texture = ExtResource("2_aees8")
-lifetime = 2.45
+lifetime = 14.88
+visibility_rect = Rect2(-1063.79, -512.306, 2050.91, 2929.91)
 process_material = SubResource("ParticleProcessMaterial_gx6sy")
 
 [node name="Label" type="Label" parent="Background1"]
@@ -111,6 +112,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_16g40")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Background2"]
+visible = false
 z_index = 90
 material = SubResource("CanvasItemMaterial_rnkuw")
 position = Vector2(576, -448)
@@ -128,17 +130,18 @@ text = "Fuel: 0"
 
 [node name="Ground" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
+lock_rotation = true
 
 [node name="TextureRect" type="TextureRect" parent="Ground"]
 z_index = 100
 offset_left = -13481.0
 offset_top = 583.0
 offset_right = 20979.0
-offset_bottom = 713.0
+offset_bottom = 1848.0
 texture = SubResource("GradientTexture2D_4krsh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(3750, 783)
+position = Vector2(3750, 1210.75)
 shape = SubResource("RectangleShape2D_xeklh")
 
 [node name="Button" type="Button" parent="."]

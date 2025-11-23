@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccp564tx2bafm"]
+
+[ext_resource type="Texture2D" uid="uid://dj4p7rsomu8ap" path="res://particles/flame_04.png" id="1_37kl0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8uh7m"]
+blend_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6uqi0"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(576, 1, 1)
+angle_min = -720.0
+angle_max = 633.3
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 657.41
+initial_velocity_max = 657.41
+gravity = Vector3(0, 98, 0)
+scale_min = 0.1
+scale_max = 0.4
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 5
+material = SubResource("CanvasItemMaterial_8uh7m")
+position = Vector2(576, -448)
+scale = Vector2(0.798039, 1)
+amount = 4
+texture = ExtResource("1_37kl0")
+lifetime = 2.45
+process_material = SubResource("ParticleProcessMaterial_6uqi0")

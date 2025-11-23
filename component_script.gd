@@ -11,10 +11,12 @@ func _ready() -> void:
 	$RigidBody2D.mass = inertia
 	
 func toggle_thrust() -> bool:
+	$RigidBody2D.constant_force = Vector2(0, 0)
 	thrust_enabled = !thrust_enabled
 	if thrust_enabled: 
-		$RigidBody2D.add_constant_central_force(Vector2(0, -thrust * 10))
-	else: $RigidBody2D.add_constant_central_force(Vector2(0, 9.81))
+		$RigidBody2D.add_constant_central_force(Vector2(0, -thrust * 50))
+	else:
+		$RigidBody2D.add_constant_central_force(Vector2(0, 981))
 	
 	return thrust_enabled
 

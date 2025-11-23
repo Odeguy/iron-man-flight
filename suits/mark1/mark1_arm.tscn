@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://2jhmygtrh7sn" path="res://component.tscn" id="1_oltna"]
 [ext_resource type="Texture2D" uid="uid://dbt08bppv7qqa" path="res://images/mark1/arm.png" id="2_501jc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_501jc"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_501jc"]
+radius = 10.6526
+height = 42.1864
 
 [node name="Component" instance=ExtResource("1_oltna")]
 type = "arm"
@@ -11,14 +13,15 @@ thrust = 5.0
 inertia = 5.0
 
 [node name="CollisionShape2D" parent="RigidBody2D" index="0"]
+rotation = 0.185291
 scale = Vector2(3.0909, 3.49474)
-shape = SubResource("CircleShape2D_501jc")
+shape = SubResource("CapsuleShape2D_501jc")
 
 [node name="TextureRect" parent="RigidBody2D" index="1"]
-offset_left = -46.0
-offset_top = -47.0
-offset_right = 52.0
-offset_bottom = 51.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 96.0
+offset_bottom = 87.0
 texture = ExtResource("2_501jc")
 expand_mode = 2
 stretch_mode = 5

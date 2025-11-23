@@ -6,27 +6,19 @@
 script = ExtResource("1_t6bb0")
 
 [node name="HelmetMarker" type="Marker2D" parent="."]
-position = Vector2(0, -58)
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="HelmetMarker"]
-disable_collision = false
-rest_length = 5.0
-
-[node name="GrooveJoint2D" type="GrooveJoint2D" parent="HelmetMarker/DampedSpringJoint2D"]
-
-[node name="PinJoint2D" type="PinJoint2D" parent="HelmetMarker/DampedSpringJoint2D/GrooveJoint2D"]
+position = Vector2(0, -136)
 
 [node name="TorsoMarker" type="Marker2D" parent="."]
 position = Vector2(-2, 0)
 
 [node name="ArmMarkerL" type="Marker2D" parent="."]
-position = Vector2(-84, 0)
+position = Vector2(-160, 32)
 
 [node name="ArmMarkerR" type="Marker2D" parent="."]
-position = Vector2(84, 0)
+position = Vector2(160, 24)
 
 [node name="LegMarkerL" type="Marker2D" parent="."]
-position = Vector2(-44, 69)
+position = Vector2(-72, 136)
 
-[node name="LegMarkerL2" type="Marker2D" parent="."]
-position = Vector2(39, 69)
+[node name="LegMarkerR" type="Marker2D" parent="."]
+position = Vector2(72, 136)

@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://2jhmygtrh7sn" path="res://component.tscn" id="1_8tqse"]
 [ext_resource type="Texture2D" uid="uid://cxicmjiee88g8" path="res://images/mark1/leg.png" id="2_ygdcl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ygdcl"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygdcl"]
+height = 53.6103
 
 [node name="Component" instance=ExtResource("1_8tqse")]
 type = "leg"
@@ -12,13 +13,13 @@ inertia = 5.0
 
 [node name="CollisionShape2D" parent="RigidBody2D" index="0"]
 scale = Vector2(3.2037, 3.5814)
-shape = SubResource("CircleShape2D_ygdcl")
+shape = SubResource("CapsuleShape2D_ygdcl")
 
 [node name="TextureRect" parent="RigidBody2D" index="1"]
-offset_left = -26.0
-offset_top = -36.0
-offset_right = 42.0
-offset_bottom = 32.0
+offset_left = -24.0
+offset_top = -72.0
+offset_right = 144.0
+offset_bottom = 96.0
 texture = ExtResource("2_ygdcl")
 expand_mode = 2
 stretch_mode = 4
