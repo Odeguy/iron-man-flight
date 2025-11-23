@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdx2tbsqftjuj"]
+
+[ext_resource type="PackedScene" uid="uid://2jhmygtrh7sn" path="res://component.tscn" id="1_irulb"]
+[ext_resource type="Texture2D" uid="uid://g655lw1r8lou" path="res://images/mark6/leg(1).png" id="2_irulb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygdcl"]
+radius = 7.49134
+height = 49.1428
+
+[node name="Component" instance=ExtResource("1_irulb")]
+type = "leg"
+thrust = 500.0
+inertia = 5.0
+
+[node name="CollisionShape2D" parent="RigidBody2D" index="0"]
+position = Vector2(-8, 0)
+scale = Vector2(3.2037, 3.5814)
+shape = SubResource("CapsuleShape2D_ygdcl")
+
+[node name="TextureRect" parent="RigidBody2D" index="1"]
+offset_left = -24.0
+offset_top = -88.0
+offset_right = 176.0
+offset_bottom = 96.0
+texture = ExtResource("2_irulb")
+expand_mode = 2
+stretch_mode = 4

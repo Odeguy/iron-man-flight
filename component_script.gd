@@ -20,6 +20,10 @@ func toggle_thrust() -> bool:
 	
 	return thrust_enabled
 
+func disable_thrust() -> void:
+	$RigidBody2D.constant_force = Vector2(0, 0)
+	thrust_enabled = false
+
 func get_texture() -> Texture:
 	return $RigidBody2D/TextureRect.texture
 

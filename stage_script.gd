@@ -14,6 +14,7 @@ var lab: Lab
 var max_height: float = 0
 
 func _ready() -> void:
+	iron_man.disable_thrust.emit()
 	$Background1/GPUParticles2D.emitting = false
 	add_child(iron_man)
 	screen_size = get_viewport_rect().size
@@ -31,16 +32,17 @@ func _physics_process(delta: float) -> void:
 	$Background1/Label.text = label_text
 	$Background2/Label.text = label_text
 	$Camera2D.position.y = pos + screen_size.y / 2
-	
+	$Button2.position.y = pos + screen_size.y * 7 / 8
 	var wind_y = (iron_man.torso.get_body().linear_velocity.y + 1) * -5
 	$Background1/GPUParticles2D.process_material.set("initial_velocity", Vector2(0, wind_y))
-	print(wind_y)
 	
 	if wind_y < -1: 
-		$Background1/GPUParticles2D.position.y = 600
+		$Background1/GPUParticles2D.position.y = 700
 	else: 
 		$Background1/GPUParticles2D.position.y = -448
-	
+	if height == 0: $Background1/GPUParticles2D.emitting = false
+	else: 
+		$Background1/GPUParticles2D.emitting = true
 	
 	if iron_man.position.y >= threshold && crossed_threshold == 0:
 		switch_background()
@@ -65,3 +67,9 @@ func _on_button_pressed() -> void:
 	$Background1/GPUParticles2D.emitting = true
 	$Button.mouse_filter = 2
 	$Button.hide()
+
+
+func _on_button_2_pressed() -> void:
+	lab.show()
+	remove_child(iron_man)
+	self.queue_free()

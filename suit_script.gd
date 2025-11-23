@@ -11,6 +11,7 @@ var torso: Component
 var helmet: Component
 var fuel: float
 signal toggle_thrust
+signal disable_thrust
 	
 func _physics_process(delta: float) -> void:
 	if fuel <= 5 && fuel != 0:
@@ -41,6 +42,9 @@ func build(f: int) -> void:
 func ready_component(component: Component) -> void:
 	await add_child(component)
 	self.connect("toggle_thrust", component.toggle_thrust)
+	self.connect("disable_thrust", component.disable_thrust)
+	component.get_body().linear_velocity = Vector2(0, 0)
+	component.get_body().position = Vector2(0, 0)
 	if component != torso:
 		attach_bodies(component.get_body_path(), torso.get_body_path())
 
@@ -49,8 +53,8 @@ func attach_bodies(body1: String, body2: String) -> void:
 	joint.node_a = body1
 	joint.node_b = body2
 	joint.stiffness = 1000
-	joint.length = 0.1
-	joint.rest_length = 0.01
+	joint.length = 2
+	joint.rest_length = 1
 	joint.disable_collision = false
 	joint.damping = 1
 	add_child(joint)

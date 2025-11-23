@@ -157,4 +157,13 @@ text = "LAUNCH"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
 
+[node name="Button2" type="Button" parent="."]
+z_index = 4096
+offset_left = 1072.0
+offset_top = 545.0
+offset_right = 1144.0
+offset_bottom = 576.0
+text = "Return"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cshapgbhxmggg"]
+
+[ext_resource type="PackedScene" uid="uid://2jhmygtrh7sn" path="res://component.tscn" id="1_ode3s"]
+[ext_resource type="Texture2D" uid="uid://tr4qh4fvwq2w" path="res://images/mark6/head(1).png" id="2_ode3s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ode3s"]
+radius = 7.01537
+height = 18.75
+
+[node name="Component" instance=ExtResource("1_ode3s")]
+type = "helmet"
+thrust = 50.0
+inertia = 15.0
+
+[node name="CollisionShape2D" parent="RigidBody2D" index="0"]
+position = Vector2(-5, -2)
+scale = Vector2(-3.42106, 4.26667)
+shape = SubResource("CapsuleShape2D_ode3s")
+
+[node name="TextureRect" parent="RigidBody2D" index="1"]
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 56.0
+offset_bottom = 40.0
+texture = ExtResource("2_ode3s")
+expand_mode = 2
+stretch_mode = 4
